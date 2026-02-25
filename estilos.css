@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px; 
+}
+
+#contenedor_superior{
+    display: flex;
+}
+
+:root{
+    --fondo-oscuro: darkblue;
+    --fondo-blanco: white;
+    --fondo-azulverdoso : #65b8a6;
+    --fondo-negro: black;
+    --fondo-grisclaro: lightgray;
+    --fondo-rojo: red;
+}
+
+
+
+#lateral_izda{
+    background-color: var(--fondo-oscuro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem; 
+    color: var(--fondo-blanco);
+    text-align: center;
+    width: 15vw; 
+    min-width: 160px;
+    padding: 2rem 1rem;
+    height: 100%;
+}
+
+#lateral_izda img{
+    width: 60%;
+    aspect-ratio: 1/1;
+    border-radius: 50%; 
+    margin-bottom: 1.5rem;
+}
+
+#lateral_izda p{
+    font-size: 0.7rem;
+    margin: 0.8rem 0;
+}
+
+.enlaces a{
+    display: block;
+    border-radius: 2rem;
+    padding: 0.8rem;
+    margin: 1rem 0.5rem;
+    background-color: var(--fondo-blanco);
+    text-decoration: none;
+    color: var(--fondo-oscuro);
+    font-weight: bold;
+}
+
+header a{
+    color: var(--fondo-oscuro);
+    transition: 0.4s;
+}
+
+header a:hover{
+    color: var(--fondo-negro);
+    background-color: var(--fondo-grisclaro);
+}
+
+main {
+    flex: 1;
+    background-color: var(--fondo-blanco);
+}
+
+#perfil, #formacion, #experiencia, #conocimientos_tecnicos, #practica_ejercicios, #habilidades {
+    padding: 2rem 4vw;
+}
+
+#perfil{
+    display: flex;
+    font-family: 'Lucida Sans', sans-serif;
+    color: var(--fondo-oscuro);
+    flex-wrap: wrap;
+}
+
+#perfil img, .titulo_seccion img{
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 0.8rem;
+}
+
+#perfil p{
+    margin-top: 1rem;
+    color: var(--fondo-negro);
+    line-height: 1.4;
+    width: 100%;
+}
+
+.titulo_seccion{
+    display: flex;
+    align-items: center;
+    color: var(--fondo-oscuro);
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#tarjetas, .duo, #separadas{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+    margin-top: 1.5rem;
+}
+
+
+#tarjeta1, #tarjeta2, #tarjetaV1, #tarjetaV2, #tarjetaV3, #tarjetaV4, .tarjeta_separada{
+    background-color: var(--fondo-azulverdoso);
+    font-family: Cambria, serif;
+    border-radius: 1.2rem;
+    width: 48%; 
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--fondo-blanco);
+    border: 0.1rem solid;
+    border-color: var(--fondo-negro);
+}
+
+.tarjeta_separada img{
+    width: 40%;
+    margin-top: 20%;
+}
+
+.tarjeta_separada img:hover{
+    width: 10rem;
+    height: 10rem;
+}
+
+.tarjeta_larga{
+    border: 0.1rem solid;
+    border-color: var(--fondo-negro);
+}
+.tarjeta_larga img{
+    width: 40%;
+    margin-top: 10%;
+}
+
+.tarjeta_larga img:hover{
+    width: 10rem;
+    height: 10rem;
+}
+
+.pequenho, .pequenho2, .small, .tarjeta_separada p, .tarjeta_larga p{
+    color: var(--fondo-negro);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: 2rem;
+    display: block;
+}
+
+#barras {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: space-between;
+    gap: 1.5rem 0;         
+    padding: 1.5rem 0;
+}
+
+#barras > div { 
+    width: 48%;           
+    min-width: 200px;     
+}
+
+.empty_bar {
+    background-color: var(--fondo-grisclaro);
+    border-radius: 1rem;
+    width: 100%;
+    height: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+
+[id^="relleno"] {
+    height: 100%;
+    border-radius: 1rem;
+    background-color: var(--fondo-oscuro);
+}
+
+#relleno { 
+    width: 70%; 
+}
+
+#relleno2 {
+     width: 10%; 
+    }
+
+#relleno3 { 
+    width: 80%; 
+}
+
+#relleno4 { 
+    width: 5%; 
+}
+
+#relleno5 { 
+    width: 1%; 
+}
+
+#relleno6 {
+     width: 15%; 
+}
+
+
+#tarjetas_largas{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.tarjeta_larga{
+    background-color: var(--fondo-azulverdoso);
+    font-family: Cambria, serif;
+    border-radius: 1.2rem;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--fondo-blanco);
+}
+
+.cajas_pequenhas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.caja_pequenha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+    justify-content: space-around;
+    border-radius: 20vh;
+    background-color: var(--fondo-azulverdoso);
+    width: 15vh;
+    height: 5vh;
+}
+
+
+.iconos_banderas img{
+    width: 1rem;
+    height: 1rem;
+}
+
+.pequenha{
+    font-size: small;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--fondo-oscuro);
+}
+
+
+footer{
+    width: 100%;
+    padding: 5rem;
+}
+
+
+#footer_flex{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: smaller;
+    font-family: Cambria, serif;
+    background-color: var(--fondo-grisclaro);
+    border-radius: 3vh;
+    padding: 2rem;
+}
+
+#enlaces_foot a{
+    margin: 0.5rem;
+    text-decoration: none;
+    color: var(--fondo-oscuro);
+}
+
+#enlaces_foot a:hover{
+    font-size: large;
+    color: var(--fondo-rojo);
+}
+
+@media (max-width: 768px) {
+
+    #contenedor_superior {
+        flex-direction: column;
+    }
+
+    
+    #lateral_izda {
+        width: 100%;
+        height: auto;
+        min-width: auto;
+        padding: 1.5rem 1rem;
+    }
+
+   
+    .enlaces {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .enlaces a {
+        margin: 0.5rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    #tarjetas, .duo, #separadas {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #tarjeta1, #tarjeta2, #tarjetaV1, #tarjetaV2, #tarjetaV3, #tarjetaV4, .tarjeta_separada {
+        width: 100%;
+    }
+
+  
+    #barras > div {
+        width: 100%;
+    }
+
+ 
+    footer {
+        padding: 2rem 5vw; 
+    }
+
+    #footer_flex {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+   
+    body {
+        font-size: 14px; 
+    }
+
+   
+    .cajas_pequenhas {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .caja_pequenha {
+        margin-top: 1rem;
+        width: auto;
+        padding: 0.5rem 1rem;
+    }
+}
