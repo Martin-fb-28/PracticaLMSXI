@@ -1,0 +1,481 @@
+/* El asterisco (*) es el selector universal. Esto quita los márgenes y rellenos (padding) por defecto 
+   que ponen los navegadores. El box-sizing: border-box es clave: hace que si le das a un elemento 
+   un ancho de 100px y un padding de 10px, siga midiendo 100px en total y no 120px. */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuramos el cuerpo de la página para que use Flexbox (display: flex) en formato vertical (column).
+   El min-height: 100vh asegura que el body ocupe, como mínimo, el 100% del alto de la ventana del navegador (Viewport Height). */
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px; 
+}
+
+/* Creamos un contenedor flex. Por defecto, Flexbox coloca a sus hijos en fila (uno al lado del otro), 
+   lo que servirá para poner un menú lateral a la izquierda y el contenido a la derecha. */
+
+#contenedor_superior{
+    display: flex;
+}
+
+/* La pseudo-clase :root es como el <html> pero con mayor especificidad. Aquí declaramos "Variables CSS" 
+   (Custom Properties). Se declaran con dos guiones (--) y sirven para guardar colores y reutilizarlos 
+   fácilmente en todo el código usando var(). */
+
+:root{
+     --fondo-oscuro: darkblue;
+    --fondo-blanco: white;
+    --fondo-azulverdoso : #65b8a6;
+    --fondo-negro: black;
+    --fondo-grisclaro: lightgray;
+    --fondo-rojo: red;
+}
+
+
+
+/* Este es el bloque lateral (un aside o un div). Fíjate en el width: 15vw (ocupa el 15% del ancho de la ventana) 
+   y el min-width: 160px para evitar que se aplaste demasiado si la pantalla se estrecha. 
+   height: 100% hace que llegue hasta abajo. */
+
+#lateral_izda{
+    background-color: var(--fondo-oscuro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem; 
+    color: var(--fondo-blanco);
+    text-align: center;
+    width: 15vw; 
+    min-width: 160px;
+    padding: 2rem 1rem;
+    height: 100%;
+}
+
+/* Modifica la imagen que esté dentro del #lateral_izda. 
+   aspect-ratio: 1/1 la hace cuadrada y border-radius: 50% recorta ese cuadrado en un círculo perfecto. */
+
+#lateral_izda img{
+    width: 60%;
+    aspect-ratio: 1/1;
+    border-radius: 50%; 
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos básicos para los párrafos dentro del menú lateral. rem es una medida relativa al tamaño de fuente raíz. */
+
+#lateral_izda p{
+    font-size: 0.7rem;
+    margin: 0.8rem 0;
+}
+
+/* Estos son los botones/enlaces del menú. display: block hace que el enlace ocupe todo el ancho 
+   y se pueda hacer clic en toda la "caja", no solo en el texto. text-decoration: none quita el subrayado. */
+
+.enlaces a{
+    display: block;
+    border-radius: 2rem;
+    padding: 0.8rem;
+    margin: 1rem 0.5rem;
+    background-color: var(--fondo-blanco);
+    text-decoration: none;
+    color: var(--fondo-oscuro);
+    font-weight: bold;
+}
+
+/* Prepara una animación suave (transition: 0.4s) para cuando el usuario interactúe con los enlaces del header. */
+
+header a{
+    color: var(--fondo-oscuro);
+    transition: 0.4s;
+}
+
+/* La pseudo-clase :hover aplica estos estilos SOLO cuando el ratón pasa por encima del enlace. */
+
+header a:hover{
+    color: var(--fondo-negro);
+    background-color: var(--fondo-grisclaro);
+}
+
+/* El main es el contenido principal. flex: 1 es súper importante: le dice al elemento que crezca 
+   y ocupe todo el espacio sobrante que el #lateral_izda le ha dejado libre. */
+
+main {
+    flex: 1;
+    background-color: var(--fondo-blanco);
+}
+
+/* Aquí estás agrupando selectores separados por comas. A todos esos IDs les aplicas el mismo padding 
+   para no tener que repetir código. Es una muy buena práctica en DAM. */
+
+#perfil, #formacion, #experiencia, #conocimientos_tecnicos, #practica_ejercicios, #habilidades {
+    padding: 2rem 4vw;
+}
+
+/* El contenedor del perfil usa Flexbox. flex-wrap: wrap permite que los elementos salten a la 
+   siguiente línea si no caben en el ancho disponible, en lugar de desbordarse. */
+
+#perfil{
+    display: flex;
+    font-family: 'Lucida Sans', sans-serif;
+    color: var(--fondo-oscuro);
+    flex-wrap: wrap;
+}
+
+/* Ajusta el tamaño de los iconos que acompañan a los títulos de las secciones. */
+
+#perfil img, .titulo_seccion img{
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 0.8rem;
+}
+
+/* line-height: 1.4 mejora la legibilidad separando un poco las líneas del texto. */
+
+#perfil p{
+    margin-top: 1rem;
+    color: var(--fondo-negro);
+    line-height: 1.4;
+    width: 100%;
+}
+
+/* Alinea verticalmente el texto y el icono del título usando align-items: center (propiedad de Flexbox). */
+
+.titulo_seccion{
+    display: flex;
+    align-items: center;
+    color: var(--fondo-oscuro);
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Contenedores de las tarjetas. justify-content: space-between empuja las tarjetas hacia los extremos, 
+   y gap: 2vw añade una separación entre ellas. */
+
+#tarjetas, .duo, #separadas{
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+    margin-top: 1.5rem;
+}
+
+/* Diseño individual de cada tarjeta. width: 48% hace que quepan dos en una fila dejando un poco de margen. */
+
+#tarjeta1, #tarjeta2, #tarjetaV1, #tarjetaV2, #tarjetaV3, #tarjetaV4, .tarjeta_separada{
+    background-color: var(--fondo-azulverdoso);
+    font-family: Cambria, serif;
+    border-radius: 1.2rem;
+    width: 48%; 
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--fondo-blanco);
+    border: 0.1rem solid;
+    border-color: var(--fondo-negro);
+}
+
+/* Tamaño base para la imagen dentro de la tarjeta separada. */
+
+.tarjeta_separada img{
+    width: 40%;
+    margin-top: 20%;
+}
+
+/* Efecto hover: la imagen se hace más grande al pasar el ratón. */
+
+.tarjeta_separada img:hover{
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Similar a lo anterior pero para tarjetas que ocupan más espacio. */
+
+.tarjeta_larga{
+    border: 0.1rem solid;
+    border-color: var(--fondo-negro);
+}
+
+.tarjeta_larga img{
+    width: 40%;
+    margin-top: 10%;
+}
+
+.tarjeta_larga img:hover{
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Textos secundarios o fechas en las tarjetas (font-style: italic pone la letra en cursiva). */
+
+.pequenho, .pequenho2, .small, .tarjeta_separada p, .tarjeta_larga p{
+    color: var(--fondo-negro);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: 2rem;
+    display: block;
+}
+
+/* Contenedor principal de las barras de progreso (habilidades). flex-wrap: wrap permite varias filas. */
+
+#barras {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 1.5rem 0; 
+    padding: 1.5rem 0;
+}
+
+/* Este es un selector de "hijo directo". Afecta a los divs que están directamente dentro de #barras. 
+   Ocupan el 48% para ir de dos en dos. */
+
+#barras > div { 
+    width: 48%; 
+    min-width: 200px;   
+}
+
+/* El fondo gris de la barra de progreso (la barra vacía). */
+
+.empty_bar {
+    background-color: var(--fondo-grisclaro);
+    border-radius: 1rem;
+    width: 100%;
+    height: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* ¡Muy interesante! El selector [id^="relleno"] selecciona todos los elementos cuyo ID *empiece* por "relleno". 
+   Así le das la altura, el borde redondeado y el color a todos a la vez. */
+
+[id^="relleno"] {
+    height: 100%;
+    border-radius: 1rem;
+    background-color: var(--fondo-oscuro);
+}
+
+/* Aquí defines el nivel de llenado específico para cada barra individual. */
+
+#relleno { 
+    width: 70%; 
+}
+
+#relleno2 {
+    width: 10%; 
+}
+
+#relleno3 { 
+    width: 80%; 
+}
+
+#relleno4 { 
+    width: 5%; 
+}
+
+#relleno5 { 
+    width: 1%; 
+}
+
+#relleno6 {
+    width: 15%; 
+}
+
+
+/* Contenedor para tarjetas que ocupan todo el ancho, colocadas en columna. */
+
+#tarjetas_largas{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+/* La tarjeta ancha en sí (ocupa el 100% de su contenedor). */
+
+.tarjeta_larga{
+    background-color: var(--fondo-azulverdoso);
+    font-family: Cambria, serif;
+    border-radius: 1.2rem;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--fondo-blanco);
+}
+
+/* Cajas para mostrar los idiomas. justify-content: space-around reparte el espacio equitativamente a los lados. */
+
+.cajas_pequenhas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+/* Estilo individual para las "píldoras" de idiomas. border-radius con vh hace que los bordes sean completamente curvos. */
+
+.caja_pequenha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+    justify-content: space-around;
+    border-radius: 20vh;
+    background-color: var(--fondo-azulverdoso);
+    width: 15vh;
+    height: 5vh;
+}
+
+
+/* Tamaño de las banderitas dentro de las cajas de idiomas. */
+
+.iconos_banderas img{
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Clases de texto pequeño. */
+.pequenha{
+    font-size: small;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--fondo-oscuro);
+}
+
+
+/* Contenedor general del pie de página. */
+
+footer{
+    width: 100%;
+    padding: 5rem;
+}
+
+
+/* Caja gris interna del footer que contiene los enlaces o redes sociales. */
+
+#footer_flex{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: smaller;
+    font-family: Cambria, serif;
+    background-color: var(--fondo-grisclaro);
+    border-radius: 3vh;
+padding: 2rem;
+}
+
+/* Enlaces del pie de página. */
+
+#enlaces_foot a{
+    margin: 0.5rem;
+    text-decoration: none;
+    color: var(--fondo-oscuro);
+}
+
+/* Efecto hover: los enlaces del footer crecen y cambian a color rojo al pasar el ratón por encima. */
+
+#enlaces_foot a:hover{
+    font-size: large;
+    color: var(--fondo-rojo);
+}
+
+/* ========================================= */
+/* MEDIA QUERIES (DISEÑO RESPONSIVE)         */
+/* ========================================= */
+
+/* Todo el CSS que hay aquí dentro SOLO se aplica si la pantalla mide 768px de ancho o menos (Tablets/Móviles horizontales). */
+
+@media (max-width: 768px) {
+
+/* El flex-direction cambia de row (por defecto) a column. 
+    El menú lateral ya no estará a la izquierda, sino que pasará a estar arriba del todo. */
+
+#contenedor_superior {
+    flex-direction: column;
+}
+
+/* Como el menú lateral ahora está arriba, le decimos que ocupe el 100% del ancho y que la altura sea automática. */
+
+#lateral_izda {
+    width: 100%;
+    height: auto;
+    min-width: auto;
+    padding: 1.5rem 1rem;
+}
+
+/* Rediseñamos los enlaces del menú para que en móvil se coloquen en fila y centraditos. */
+
+.enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+ }
+
+.enlaces a {
+    margin: 0.5rem;
+    padding: 0.6rem 1rem;
+}
+ 
+/* Las tarjetas en versión escritorio iban de dos en dos. En versión tablet/móvil pasan a apilarse en una sola columna. */
+
+#tarjetas, .duo, #separadas {
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Y en lugar del 48%, le decimos a las tarjetas que ocupen todo el ancho disponible (100%). */
+
+#tarjeta1, #tarjeta2, #tarjetaV1, #tarjetaV2, #tarjetaV3, #tarjetaV4, .tarjeta_separada {
+    width: 100%;
+}
+
+/* Lo mismo para las barras de progreso, ahora cada una ocupa toda una línea en lugar de ir en dos columnas. */
+
+#barras > div {
+    width: 100%;
+}
+
+/* Reducimos un poco los espacios del footer para que no se vea gigante en el móvil. */
+
+footer {
+    padding: 2rem 5vw; 
+}
+
+/* Los elementos del pie de página se apilan verticalmente. */
+
+#footer_flex {
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+}
+
+
+/* Este Media Query es para pantallas aún más pequeñas (Móviles en vertical, 480px o menos). */
+
+@media (max-width: 480px) {
+
+/* Reducimos el tamaño de fuente global para que los textos grandes no rompan el diseño. */
+
+body {
+    font-size: 14px; 
+}
+
+/* Permitimos que las cajas pequeñas (las "píldoras" de idiomas) salten de línea si no caben todas. */
+
+.cajas_pequenhas {
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Ajustamos las "píldoras" para que su ancho se adapte automáticamente al texto interior (width: auto). */
+
+.caja_pequenha {
+    margin-top: 1rem;
+    width: auto;
+    padding: 0.5rem 1rem;
+}
+
+}
